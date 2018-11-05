@@ -1,6 +1,7 @@
 package com.anhtu.tuna.petmanager.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.anhtu.tuna.petmanager.Add_DOG;
+import com.anhtu.tuna.petmanager.MainActivity;
 import com.anhtu.tuna.petmanager.R;
 import com.anhtu.tuna.petmanager.model.Albums;
 import com.bumptech.glide.Glide;
@@ -22,6 +25,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyViewHolder
 
     private Context mContext;
     private List<Albums> albumList;
+    private MainActivity mainActivity = new MainActivity();
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title, count;
@@ -54,7 +58,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyViewHolder
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         Albums album = albumList.get(position);
         holder.title.setText(album.getName());
-        holder.count.setText(album.getNumOfPet() + " songs");
+        holder.count.setText("Amount: "+album.getNumOfPet());
 
         // loading album cover using Glide library
         Glide.with(mContext).load(album.getThumbnail()).into(holder.thumbnail);
@@ -90,11 +94,12 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyViewHolder
         @Override
         public boolean onMenuItemClick(MenuItem menuItem) {
             switch (menuItem.getItemId()) {
-                case R.id.action_add_favourite:
-                    Toast.makeText(mContext, "Add to favourite", Toast.LENGTH_SHORT).show();
+                case R.id.addPet:
+                    Intent intent = new Intent(mContext,Add_DOG.class);
+                    mContext.startActivity(intent);
                     return true;
-                case R.id.action_play_next:
-                    Toast.makeText(mContext, "Play next", Toast.LENGTH_SHORT).show();
+                case R.id.showListPet:
+                    Toast.makeText(mContext, "Show list PET", Toast.LENGTH_SHORT).show();
                     return true;
                 default:
             }
