@@ -98,39 +98,51 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.image_cat_scottish_fold,};
 
         Albums a = new Albums("Husky", 13, covers[0]);
+        a.setType(Albums.DOG);
         albumList.add(a);
 
         a = new Albums("Egyptian Mau", 8, covers[1]);
+        a.setType(Albums.CAT);
         albumList.add(a);
 
         a = new Albums("Becgie", 11, covers[2]);
+        a.setType(Albums.DOG);
         albumList.add(a);
 
         a = new Albums("Himalaya", 12, covers[3]);
+        a.setType(Albums.DOG);
         albumList.add(a);
 
         a = new Albums("Pooldy", 14, covers[4]);
+        a.setType(Albums.DOG);
         albumList.add(a);
 
         a = new Albums("LaPerm", 1, covers[5]);
+        a.setType(Albums.DOG);
         albumList.add(a);
 
         a = new Albums("Samoyed", 11, covers[6]);
+        a.setType(Albums.DOG);
         albumList.add(a);
 
         a = new Albums("Maine Coon", 14, covers[7]);
+        a.setType(Albums.DOG);
         albumList.add(a);
 
         a = new Albums("Golden", 11, covers[8]);
+        a.setType(Albums.DOG);
         albumList.add(a);
 
         a = new Albums("Peterbald", 17, covers[9]);
+        a.setType(Albums.CAT);
         albumList.add(a);
 
         a = new Albums("Alaska", 11, covers[10]);
+        a.setType(Albums.CAT);
         albumList.add(a);
 
         a = new Albums("Scottish Fold", 17, covers[11]);
+        a.setType(Albums.CAT);
         albumList.add(a);
 
         adapter.notifyDataSetChanged();

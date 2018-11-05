@@ -1,5 +1,5 @@
 package com.anhtu.tuna.petmanager.model;
 
-public class DOG {
+public class Dog {
 
 }

@@ -56,9 +56,10 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
-        Albums album = albumList.get(position);
+        final Albums album = albumList.get(position);
         holder.title.setText(album.getName());
-        holder.count.setText("Amount: "+album.getNumOfPet());
+        holder.count.setText("Amount: " + album.getNumOfPet());
+
 
         // loading album cover using Glide library
         Glide.with(mContext).load(album.getThumbnail()).into(holder.thumbnail);
@@ -66,7 +67,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyViewHolder
         holder.overflow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showPopupMenu(holder.overflow);
+                showPopupMenu(holder.overflow, album.getType());
             }
         });
     }
@@ -74,12 +75,12 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyViewHolder
     /**
      * Showing popup menu when tapping on 3 dots
      */
-    private void showPopupMenu(View view) {
+    private void showPopupMenu(View view, String type) {
         // inflate menu
         PopupMenu popup = new PopupMenu(mContext, view);
         MenuInflater inflater = popup.getMenuInflater();
         inflater.inflate(R.menu.menu_album, popup.getMenu());
-        popup.setOnMenuItemClickListener(new MyMenuItemClickListener());
+        popup.setOnMenuItemClickListener(new MyMenuItemClickListener(type));
         popup.show();
     }
 
@@ -88,14 +89,22 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyViewHolder
      */
     class MyMenuItemClickListener implements PopupMenu.OnMenuItemClickListener {
 
-        public MyMenuItemClickListener() {
+        private String type;
+
+        public MyMenuItemClickListener(String type) {
+            this.type = type;
         }
 
         @Override
         public boolean onMenuItemClick(MenuItem menuItem) {
             switch (menuItem.getItemId()) {
                 case R.id.addPet:
-                    Intent intent = new Intent(mContext,Add_DOG.class);
+                    Intent intent;
+                    if (type.equals(Albums.DOG)){
+                        intent = new Intent(mContext, Add_DOG.class);
+                    }else {
+                        intent = new Intent(mContext, Add_DOG.class);
+                    }
                     mContext.startActivity(intent);
                     return true;
                 case R.id.showListPet:
