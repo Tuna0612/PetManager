@@ -11,16 +11,14 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.QuickContactBadge;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.anhtu.tuna.petmanager.model.PET;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Add_DOG extends AppCompatActivity {
+public class AddDog extends AppCompatActivity {
     private Toolbar toolbar;
     private ImageView outthempet;
     private EditText edID;
@@ -59,7 +57,7 @@ public class Add_DOG extends AppCompatActivity {
         btnDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Add_DOG.this,Edit_PET.class));
+                startActivity(new Intent(AddDog.this,EditPET.class));
             }
         });
 

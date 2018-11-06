@@ -3,7 +3,7 @@ package com.anhtu.tuna.petmanager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class List_PET extends AppCompatActivity {
+public class ListPET extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -3,9 +3,7 @@ package com.anhtu.tuna.petmanager.database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.support.annotation.Nullable;
-
-import com.anhtu.tuna.petmanager.model.PET_DAO;
+import com.anhtu.tuna.petmanager.model.PetDao;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -18,12 +16,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(PET_DAO.SQL_PET);
+        sqLiteDatabase.execSQL(PetDao.SQL_PET);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("Drop table if exists " + PET_DAO.TABLE_NAME);
+        sqLiteDatabase.execSQL("Drop table if exists " + PetDao.TABLE_NAME);
         onCreate(sqLiteDatabase);
     }
 }

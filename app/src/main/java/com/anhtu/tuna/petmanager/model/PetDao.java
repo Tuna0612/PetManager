@@ -2,7 +2,6 @@ package com.anhtu.tuna.petmanager.model;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.ContentObservable;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -12,7 +11,7 @@ import com.anhtu.tuna.petmanager.database.DatabaseHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PET_DAO {
+public class PetDao {
     private SQLiteDatabase db;
     private DatabaseHelper databaseHelper;
     public static final String TABLE_NAME = "PET";
@@ -25,12 +24,12 @@ public class PET_DAO {
     public static final String SQL_PET= "CREATE TABLE "+TABLE_NAME+" ("+COLUMN_ID+" text primary key, "+COLUMN_LOAI+" text, "+COLUMN_WEIGHT+" text, "+COLUMN_HEALTH+" text, "+COLUMN_PRICE+" text);";
     public static final String TAG = "PET_DAO";
 
-    public PET_DAO(Context context){
+    public PetDao(Context context){
         databaseHelper = new DatabaseHelper(context);
         db = databaseHelper.getWritableDatabase();
     }
 
-    public int inserPet(PET pet) {
+    public int insertPet(PET pet) {
         ContentValues values = new ContentValues();
         values.put("username", pet.getmID());
         values.put("password", pet.getmLoai());
@@ -86,6 +85,4 @@ public class PET_DAO {
             return -1;
         return 1;
     }
-
-
 }

@@ -15,23 +15,23 @@ import android.widget.TextView;
 
 import com.anhtu.tuna.petmanager.R;
 import com.anhtu.tuna.petmanager.model.PET;
-import com.anhtu.tuna.petmanager.model.PET_DAO;
+import com.anhtu.tuna.petmanager.model.PetDao;
 
 import java.util.List;
 
-public class PET_Adapter extends BaseAdapter {
+public class PetAdapter extends BaseAdapter {
 
     List<PET> list;
     public Activity context;
     public LayoutInflater inflater;
-    PET_DAO petDAO;
+    PetDao petDAO;
 
-    public PET_Adapter(Activity context, List<PET> list) {
+    public PetAdapter(Activity context, List<PET> list) {
         super();
         this.context = context;
         this.list = list;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        petDAO = new PET_DAO(context);
+        petDAO = new PetDao(context);
     }
 
     @Override

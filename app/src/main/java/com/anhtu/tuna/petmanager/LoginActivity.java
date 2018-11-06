@@ -3,23 +3,20 @@ package com.anhtu.tuna.petmanager;
 import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-public class Login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     private Toolbar toolbarLogin;
     private ProgressBar loginProgress;
     private ScrollView loginForm;
@@ -39,7 +36,7 @@ public class Login extends AppCompatActivity {
                 String mEmail = email.getText().toString();
                 String mPass = password.getText().toString();
                 if (mEmail.equals("admin") && mPass.equals("admin")) {
-                    final Dialog dialog = new Dialog(Login.this);
+                    final Dialog dialog = new Dialog(LoginActivity.this);
                     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                     dialog.setContentView(R.layout.activity_dialog);
                     dialog.show();
@@ -51,9 +48,9 @@ public class Login extends AppCompatActivity {
                     videoview.setVideoURI(uri);
                     videoview.start();
                 } else if(mEmail.equals("tuna") && mPass.equals("tuna")){
-                    startActivity(new Intent(Login.this,MainActivity.class));
+                    startActivity(new Intent(LoginActivity.this,MainActivity.class));
                 } else {
-                    Toast.makeText(Login.this, "Lêu lêu", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Lêu lêu", Toast.LENGTH_SHORT).show();
                 }
             }
         });

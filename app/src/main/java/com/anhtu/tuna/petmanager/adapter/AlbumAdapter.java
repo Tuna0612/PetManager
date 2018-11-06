@@ -13,7 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.anhtu.tuna.petmanager.Add_DOG;
+import com.anhtu.tuna.petmanager.AddDog;
+import com.anhtu.tuna.petmanager.EditPET;
 import com.anhtu.tuna.petmanager.MainActivity;
 import com.anhtu.tuna.petmanager.R;
 import com.anhtu.tuna.petmanager.model.Albums;
@@ -101,9 +102,9 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyViewHolder
                 case R.id.addPet:
                     Intent intent;
                     if (type.equals(Albums.DOG)){
-                        intent = new Intent(mContext, Add_DOG.class);
+                        intent = new Intent(mContext, AddDog.class);
                     }else {
-                        intent = new Intent(mContext, Add_DOG.class);
+                        intent = new Intent(mContext, EditPET.class);
                     }
                     mContext.startActivity(intent);
                     return true;

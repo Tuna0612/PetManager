@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
-public class Edit_PET extends AppCompatActivity {
+public class EditPET extends AppCompatActivity {
     private Toolbar toolbar;
     private ImageView outeditpet;
     private EditText edID;

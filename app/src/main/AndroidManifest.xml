@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppThemeNoActionBar">
-        <activity android:name=".Start">
+        <activity android:name=".StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,11 +23,11 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity
-            android:name=".Login"
+            android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".Add_DOG" />
-        <activity android:name=".List_PET" />
-        <activity android:name=".Edit_PET"></activity>
+        <activity android:name=".AddDog" />
+        <activity android:name=".ListPET" />
+        <activity android:name=".EditPET"></activity>
     </application>
 
 </manifest>
