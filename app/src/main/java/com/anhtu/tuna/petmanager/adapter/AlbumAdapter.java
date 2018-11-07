@@ -13,8 +13,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.anhtu.tuna.petmanager.AddDog;
-import com.anhtu.tuna.petmanager.EditPET;
+import com.anhtu.tuna.petmanager.AddCatActivity;
+import com.anhtu.tuna.petmanager.AddDogActivity;
+import com.anhtu.tuna.petmanager.ListPET;
 import com.anhtu.tuna.petmanager.MainActivity;
 import com.anhtu.tuna.petmanager.R;
 import com.anhtu.tuna.petmanager.model.Albums;
@@ -102,14 +103,14 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyViewHolder
                 case R.id.addPet:
                     Intent intent;
                     if (type.equals(Albums.DOG)){
-                        intent = new Intent(mContext, AddDog.class);
+                        intent = new Intent(mContext, AddDogActivity.class);
                     }else {
-                        intent = new Intent(mContext, EditPET.class);
+                        intent = new Intent(mContext, AddCatActivity.class);
                     }
                     mContext.startActivity(intent);
                     return true;
                 case R.id.showListPet:
-                    Toast.makeText(mContext, "Show list PET", Toast.LENGTH_SHORT).show();
+                    mContext.startActivity(new Intent(mContext,ListPET.class));
                     return true;
                 default:
             }

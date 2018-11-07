@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PetManager</string>
+    <string name="app_name">Pet Store</string>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->

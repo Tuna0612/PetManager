@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         albumList.add(a);
 
         a = new Albums("Himalaya", 12, covers[3]);
-        a.setType(Albums.DOG);
+        a.setType(Albums.CAT);
         albumList.add(a);
 
         a = new Albums("Pooldy", 14, covers[4]);
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         albumList.add(a);
 
         a = new Albums("LaPerm", 1, covers[5]);
-        a.setType(Albums.DOG);
+        a.setType(Albums.CAT);
         albumList.add(a);
 
         a = new Albums("Samoyed", 11, covers[6]);
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         albumList.add(a);
 
         a = new Albums("Maine Coon", 14, covers[7]);
-        a.setType(Albums.DOG);
+        a.setType(Albums.CAT);
         albumList.add(a);
 
         a = new Albums("Golden", 11, covers[8]);
@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
         albumList.add(a);
 
         a = new Albums("Alaska", 11, covers[10]);
-        a.setType(Albums.CAT);
+        a.setType(Albums.DOG);
         albumList.add(a);
 
         a = new Albums("Scottish Fold", 17, covers[11]);

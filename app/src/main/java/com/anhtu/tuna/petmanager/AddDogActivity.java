@@ -18,7 +18,7 @@ import com.anhtu.tuna.petmanager.model.PET;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddDog extends AppCompatActivity {
+public class AddDogActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private ImageView outthempet;
     private EditText edID;
@@ -57,7 +57,7 @@ public class AddDog extends AppCompatActivity {
         btnDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AddDog.this,EditPET.class));
+                startActivity(new Intent(AddDogActivity.this,EditPET.class));
             }
         });
 
@@ -84,7 +84,6 @@ public class AddDog extends AppCompatActivity {
         list.add("Becgie");
         list.add("Pooldy");
         list.add("Samoyed");
-        list.add("Golden");
         list.add("Golden");
         list.add("Alaska");
 

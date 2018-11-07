@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AddDog">
+    tools:context=".AddDogActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -31,7 +31,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="8dp"
                 android:gravity="center_vertical"
-                android:text="Add PET"
+                android:text="Add DOG"
                 android:textColor="#fff"
                 android:textSize="22sp" />
         </LinearLayout>
@@ -40,7 +40,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:src="@drawable/addpet"/>
+        android:src="@drawable/adddog"/>
 
     <LinearLayout
         android:layout_width="match_parent"
