@@ -26,9 +26,10 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
         <activity android:name=".AddDogActivity" />
-        <activity android:name=".ListPET" />
+        <activity android:name=".ListDogActivity" />
         <activity android:name=".EditPET" />
-        <activity android:name=".AddCatActivity"></activity>
+        <activity android:name=".AddCatActivity" />
+        <activity android:name=".ListCatActivity"></activity>
     </application>
 
 </manifest>

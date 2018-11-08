@@ -12,7 +12,12 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.anhtu.tuna.petmanager.dao.CatDao;
+import com.anhtu.tuna.petmanager.dao.DogDao;
+import com.anhtu.tuna.petmanager.model.Cat;
+import com.anhtu.tuna.petmanager.model.Dog;
 import com.anhtu.tuna.petmanager.model.PET;
 
 import java.util.ArrayList;
@@ -31,6 +36,7 @@ public class AddDogActivity extends AppCompatActivity {
     private Button btnSave;
     private Button btnDel;
     private List<PET> list;
+    private DogDao dogDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,14 +56,39 @@ public class AddDogActivity extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                dogDao = new DogDao(getApplicationContext());
+                String id = edID.getText().toString();
+                String loai = (String) spinLoai.getSelectedItem();
+                String weight = edWeight.getText().toString();
+                String health = (String) spinHealth.getSelectedItem();
+                String price = edPrice.getText().toString();
+                Dog dog = null;
+                try {
+                    dog = new Dog(id,loai,weight,health,price);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
 
+                if (dogDao.insertDog(dog) > 0) {
+                    Toast.makeText(getApplicationContext(), "Add successfully", Toast.LENGTH_SHORT).show();
+
+                    finish();
+                    startActivity(new Intent(getApplicationContext(), ListCatActivity.class));
+                } else {
+                    edID.setError("Add error");
+
+                }
             }
         });
 
         btnDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AddDogActivity.this,EditPET.class));
+                edID.setText("");
+                spinLoai.setSelection(0);
+                edWeight.setText("");
+                spinHealth.setSelection(0);
+                edPrice.setText("");
             }
         });
 
@@ -104,9 +135,9 @@ public class AddDogActivity extends AppCompatActivity {
 
     public void spinnerHealth(){
         List<String> list = new ArrayList<>();
-        list.add("Tốt");
-        list.add("Ốm");
-        list.add("Có dị tật");
+        list.add("Healthy");
+        list.add("Sick");
+        list.add("There are deformities");
 
         ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,list);
         adapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);

@@ -21,5 +21,15 @@
     <string name="list_Pet">List PET</string>
     <string name="backdrop_title">PET KINGDOM</string>
     <string name="backdrop_subtitle">Where humans are only servants</string>
+    <string name="vaccination">Vaccination</string>
+    <string name="price">Price</string>
+    <string name="health">Health</string>
+    <string name="weight">Weight</string>
+    <string name="kind">Kind PET</string>
+    <string name="id">ID</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="injected">Injected</string>
+    <string name="uninjected">Not Injected</string>
 
 </resources>

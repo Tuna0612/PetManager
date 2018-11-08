@@ -51,15 +51,16 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:text="ID"
-            android:gravity="center"/>
+            android:layout_weight="2.5"
+            android:text="@string/id"
+            android:gravity="left|center"
+            android:layout_marginLeft="5dp"/>
 
         <EditText
             android:id="@+id/edID"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="8" />
+            android:layout_weight="7.5" />
 
     </LinearLayout>
 
@@ -71,15 +72,16 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:text="Loại PET"
-            android:gravity="center"/>
+            android:layout_weight="2.5"
+            android:text="@string/kind"
+            android:gravity="left|center"
+            android:layout_marginLeft="5dp"/>
 
         <Spinner
             android:id="@+id/spinLoai"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_weight="8" />
+            android:layout_weight="7.5" />
 
     </LinearLayout>
 
@@ -91,15 +93,16 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:text="Cân nặng"
-            android:gravity="center"/>
+            android:layout_weight="2.5"
+            android:text="@string/weight"
+            android:gravity="left|center"
+            android:layout_marginLeft="5dp" />
 
         <EditText
             android:id="@+id/edWeight"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="8" />
+            android:layout_weight="7.5" />
 
     </LinearLayout>
 
@@ -111,15 +114,16 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:text="Sức khỏe"
-            android:gravity="center"/>
+            android:layout_weight="2.5"
+            android:text="@string/health"
+            android:gravity="left|center"
+            android:layout_marginLeft="5dp"/>
 
         <Spinner
             android:id="@+id/spinHealth"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_weight="8" />
+            android:layout_weight="7.5" />
 
     </LinearLayout>
 
@@ -131,24 +135,25 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:text="Tiêm phòng"
-            android:gravity="center"/>
+            android:layout_weight="2.5"
+            android:text="@string/vaccination"
+            android:gravity="left|center"
+            android:layout_marginLeft="5dp"/>
 
         <CheckBox
             android:id="@+id/cboYes"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:text="Đã tiêm"
+            android:layout_weight="3.75"
+            android:text="@string/injected"
             android:layout_margin="3dp"/>
 
         <CheckBox
             android:id="@+id/cboNo"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:text="Chưa tiêm"
+            android:layout_weight="3.75"
+            android:text="@string/uninjected"
             android:layout_margin="3dp"/>
 
     </LinearLayout>
@@ -161,15 +166,16 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:text="Giá tiền"
-            android:gravity="center"/>
+            android:layout_weight="2.5"
+            android:text="@string/price"
+            android:gravity="left|center"
+            android:layout_marginLeft="5dp"/>
 
         <EditText
             android:id="@+id/edPrice"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="8" />
+            android:layout_weight="7.5" />
 
     </LinearLayout>
 
@@ -183,13 +189,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Save"/>
+            android:text="@string/save"/>
 
         <Button
             android:id="@+id/btnDel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Hủy"/>
+            android:text="@string/cancel"/>
     </LinearLayout>
 </LinearLayout>

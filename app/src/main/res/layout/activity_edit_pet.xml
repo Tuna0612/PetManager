@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AddDogActivity">
+    tools:context=".EditPET">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -24,7 +24,8 @@
                 android:id="@+id/outeditpet"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_back" />
+                android:src="@drawable/ic_back"
+                android:onClick="out"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -44,24 +45,24 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:text="ID"
-            android:gravity="center"/>
+            android:layout_weight="2.5"
+            android:text="@string/id"
+            android:gravity="left|center"
+            android:layout_marginLeft="5dp"/>
 
-        <EditText
-            android:id="@+id/edID"
+        <TextView
+            android:id="@+id/tvD"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="8" />
+            android:layout_weight="7.5" />
 
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -71,15 +72,16 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:text="Cân nặng"
-            android:gravity="center"/>
+            android:layout_weight="2.5"
+            android:text="@string/weight"
+            android:gravity="left|center"
+            android:layout_marginLeft="5dp" />
 
         <EditText
             android:id="@+id/edWeight"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="8" />
+            android:layout_weight="7.5" />
 
     </LinearLayout>
 
@@ -91,47 +93,20 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:text="Sức khỏe"
-            android:gravity="center"/>
+            android:layout_weight="2.5"
+            android:text="@string/health"
+            android:gravity="left|center"
+            android:layout_marginLeft="5dp"/>
 
-        <Spinner
-            android:id="@+id/spinHealth"
+        <EditText
+            android:id="@+id/edHealth"
             android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="8" />
+            android:layout_height="wrap_content"
+            android:layout_weight="7.5" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:text="Tiêm phòng"
-            android:gravity="center"/>
-
-        <CheckBox
-            android:id="@+id/cboYes"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:text="Đã tiêm"
-            android:layout_margin="3dp"/>
-
-        <CheckBox
-            android:id="@+id/cboNo"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:text="Chưa tiêm"
-            android:layout_margin="3dp"/>
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -141,15 +116,16 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:text="Giá tiền"
-            android:gravity="center"/>
+            android:layout_weight="2.5"
+            android:text="@string/price"
+            android:gravity="left|center"
+            android:layout_marginLeft="5dp"/>
 
         <EditText
             android:id="@+id/edPrice"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="8" />
+            android:layout_weight="7.5" />
 
     </LinearLayout>
 

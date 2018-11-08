@@ -11,11 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.anhtu.tuna.petmanager.AddCatActivity;
 import com.anhtu.tuna.petmanager.AddDogActivity;
-import com.anhtu.tuna.petmanager.ListPET;
+import com.anhtu.tuna.petmanager.ListCatActivity;
+import com.anhtu.tuna.petmanager.ListDogActivity;
 import com.anhtu.tuna.petmanager.MainActivity;
 import com.anhtu.tuna.petmanager.R;
 import com.anhtu.tuna.petmanager.model.Albums;
@@ -110,7 +110,11 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyViewHolder
                     mContext.startActivity(intent);
                     return true;
                 case R.id.showListPet:
-                    mContext.startActivity(new Intent(mContext,ListPET.class));
+                    if (type.equals(Albums.DOG)){
+                        mContext.startActivity(new Intent(mContext,ListDogActivity.class));
+                    }else {
+                        mContext.startActivity(new Intent(mContext,ListCatActivity.class));
+                    }
                     return true;
                 default:
             }

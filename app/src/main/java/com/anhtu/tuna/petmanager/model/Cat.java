@@ -1,17 +1,28 @@
 package com.anhtu.tuna.petmanager.model;
 
-public class Dog {
+public class Cat {
     String mID,mLoai,mWeight,mHealth,mTiem,mPrice;
 
-    public Dog() {
+
+
+    public Cat(String mID, String mLoai, String mWeight, String mHealth, String mTiem, String mPrice) {
+        this.mID = mID;
+        this.mLoai = mLoai;
+        this.mWeight = mWeight;
+        this.mHealth = mHealth;
+        this.mTiem = mTiem;
+        this.mPrice = mPrice;
     }
 
-    public Dog(String mID, String mLoai, String mWeight, String mHealth, String mPrice) {
+    public Cat(String mID, String mLoai, String mWeight, String mHealth, String mPrice) {
         this.mID = mID;
         this.mLoai = mLoai;
         this.mWeight = mWeight;
         this.mHealth = mHealth;
         this.mPrice = mPrice;
+    }
+
+    public Cat() {
     }
 
     public String getmID() {
