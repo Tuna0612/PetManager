@@ -14,11 +14,8 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.anhtu.tuna.petmanager.dao.CatDao;
 import com.anhtu.tuna.petmanager.dao.DogDao;
-import com.anhtu.tuna.petmanager.model.Cat;
 import com.anhtu.tuna.petmanager.model.Dog;
-import com.anhtu.tuna.petmanager.model.PET;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +32,7 @@ public class AddDogActivity extends AppCompatActivity {
     private EditText edPrice;
     private Button btnSave;
     private Button btnDel;
-    private List<PET> list;
+    private List<Dog> listDog;
     private DogDao dogDao;
 
     @Override
@@ -73,10 +70,9 @@ public class AddDogActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Add successfully", Toast.LENGTH_SHORT).show();
 
                     finish();
-                    startActivity(new Intent(getApplicationContext(), ListCatActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ListDogActivity.class));
                 } else {
                     edID.setError("Add error");
-
                 }
             }
         });
@@ -91,7 +87,6 @@ public class AddDogActivity extends AppCompatActivity {
                 edPrice.setText("");
             }
         });
-
     }
 
     public void initView(){
@@ -106,7 +101,7 @@ public class AddDogActivity extends AppCompatActivity {
         edPrice = (EditText) findViewById(R.id.edPrice);
         btnSave = (Button) findViewById(R.id.btnSave);
         btnDel = (Button) findViewById(R.id.btnDel);
-
+        dogDao = new DogDao(getApplicationContext());
     }
 
     public void spinnerDog(){

@@ -16,9 +16,7 @@ import android.widget.Toast;
 
 import com.anhtu.tuna.petmanager.dao.CatDao;
 import com.anhtu.tuna.petmanager.model.Cat;
-import com.anhtu.tuna.petmanager.model.PET;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,7 +73,6 @@ public class AddCatActivity extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), ListCatActivity.class));
                 } else {
                     edID.setError("Add error");
-
                 }
             }
         });
@@ -105,7 +102,6 @@ public class AddCatActivity extends AppCompatActivity {
         btnSave = (Button) findViewById(R.id.btnSave);
         btnDel = (Button) findViewById(R.id.btnDel);
         catDao = new CatDao(getApplicationContext());
-
     }
 
     public void spinnerDog(){

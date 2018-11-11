@@ -10,7 +10,6 @@ import com.anhtu.tuna.petmanager.adapter.CatAdapter;
 import com.anhtu.tuna.petmanager.dao.CatDao;
 import com.anhtu.tuna.petmanager.model.Cat;
 
-import java.text.ParseException;
 import java.util.List;
 
 public class ListCatActivity extends AppCompatActivity {

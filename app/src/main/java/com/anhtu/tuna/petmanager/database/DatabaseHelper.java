@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.anhtu.tuna.petmanager.dao.CatDao;
+import com.anhtu.tuna.petmanager.dao.DogDao;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -18,11 +19,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(CatDao.SQL_CAT);
+        sqLiteDatabase.execSQL(DogDao.SQL_DOG);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("Drop table if exists " + CatDao.TABLE_NAME);
+        sqLiteDatabase.execSQL("Drop table if exists " + CatDao.TABLE_NAME_CAT);
+        sqLiteDatabase.execSQL("Drop table if exists " + DogDao.TABLE_NAME_DOG);
         onCreate(sqLiteDatabase);
     }
 }

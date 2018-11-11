@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.anhtu.tuna.petmanager.database.DatabaseHelper;
-import com.anhtu.tuna.petmanager.model.Cat;
 import com.anhtu.tuna.petmanager.model.Dog;
 
 import java.util.ArrayList;
@@ -15,15 +14,15 @@ import java.util.List;
 
 public class DogDao {
     private final SQLiteDatabase db;
-    public static final String TABLE_NAME = "Dog";
+    public static final String TABLE_NAME_DOG = "DOG";
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_LOAI = "loai";
     public static final String COLUMN_WEIGHT = "cannang";
     public static final String COLUMN_HEALTH = "suckhoe";
     public static final String COLUMN_TIEM = "tiem";
     public static final String COLUMN_PRICE = "gia";
-    public static final String SQL_DOG= "CREATE TABLE "+TABLE_NAME+" ("+COLUMN_ID+" text primary key, "+COLUMN_LOAI+" text, "+COLUMN_WEIGHT+" text, "+COLUMN_HEALTH+" text, "+COLUMN_PRICE+" text);";
-    public static final String TAG = "DOG_DAO";
+    public static final String SQL_DOG= "CREATE TABLE "+TABLE_NAME_DOG+" ("+COLUMN_ID+" text primary key, "+COLUMN_LOAI+" text, "+COLUMN_WEIGHT+" text, "+COLUMN_HEALTH+" text, "+COLUMN_PRICE+" text);";
+    public static final String TAG = "CAT_DAO";
 
     public DogDao(Context context) {
         DatabaseHelper databasemanager = new DatabaseHelper(context);
@@ -38,7 +37,7 @@ public class DogDao {
         values.put(COLUMN_HEALTH, dog.getmHealth());
         values.put(COLUMN_PRICE, dog.getmPrice());
         try {
-            if (db.insert(TABLE_NAME, null, values) == -1) {
+            if (db.insert(TABLE_NAME_DOG, null, values) == -1) {
                 return -1;
             }
         } catch (Exception ex) {
@@ -54,7 +53,7 @@ public class DogDao {
         values.put(COLUMN_WEIGHT, dog.getmWeight());
         values.put(COLUMN_HEALTH, dog.getmHealth());
         values.put(COLUMN_PRICE, dog.getmPrice());
-        int result = db.update(TABLE_NAME, values, "id=?", new String[]{dog.getmID()});
+        int result = db.update(TABLE_NAME_DOG, values, "id=?", new String[]{dog.getmID()});
         if (result == 0) {
             return -1;
         }
@@ -63,7 +62,7 @@ public class DogDao {
 
     public List<Dog> getAllDog() {
         List<Dog> dsDog = new ArrayList<>();
-        Cursor c = db.query(TABLE_NAME, null, null, null, null, null, null);
+        Cursor c = db.query(TABLE_NAME_DOG, null, null, null, null, null, null);
         c.moveToFirst();
         while (c.isAfterLast() == false) {
             Dog ee = new Dog();
@@ -81,7 +80,7 @@ public class DogDao {
     }
 
     public int deleteDogbyID(String dog) {
-        int result = db.delete(TABLE_NAME, "id=?", new String[]{dog});
+        int result = db.delete(TABLE_NAME_DOG, "id=?", new String[]{dog});
         if (result == 0)
             return -1;
         return 1;
