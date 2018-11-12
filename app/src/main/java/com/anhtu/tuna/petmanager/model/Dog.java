@@ -1,7 +1,9 @@
 package com.anhtu.tuna.petmanager.model;
 
 public class Dog {
-    String mID,mLoai,mWeight,mHealth,mTiem,mPrice;
+    String mID,mLoai,mWeight,mHealth,mInjected,mPrice;
+    private byte[] image;
+
 
     public Dog() {
     }
@@ -12,6 +14,25 @@ public class Dog {
         this.mWeight = mWeight;
         this.mHealth = mHealth;
         this.mPrice = mPrice;
+    }
+
+    public Dog(String mID, String mLoai, String mWeight, String mHealth, String mInjected, String mPrice) {
+        this.mID = mID;
+        this.mLoai = mLoai;
+        this.mWeight = mWeight;
+        this.mHealth = mHealth;
+        this.mInjected = mInjected;
+        this.mPrice = mPrice;
+    }
+
+    public Dog(String mID, String mLoai, String mWeight, String mHealth, String mInjected, String mPrice, byte[] image) {
+        this.mID = mID;
+        this.mLoai = mLoai;
+        this.mWeight = mWeight;
+        this.mHealth = mHealth;
+        this.mInjected = mInjected;
+        this.mPrice = mPrice;
+        this.image = image;
     }
 
     public String getmID() {
@@ -46,12 +67,12 @@ public class Dog {
         this.mHealth = mHealth;
     }
 
-    public String getmTiem() {
-        return mTiem;
+    public String getmInjected() {
+        return mInjected;
     }
 
-    public void setmTiem(String mTiem) {
-        this.mTiem = mTiem;
+    public void setmInjected(String mInjected) {
+        this.mInjected = mInjected;
     }
 
     public String getmPrice() {
@@ -60,5 +81,13 @@ public class Dog {
 
     public void setmPrice(String mPrice) {
         this.mPrice = mPrice;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }

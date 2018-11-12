@@ -9,7 +9,7 @@ import com.anhtu.tuna.petmanager.dao.DogDao;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "petstore";
+    public static final String DATABASE_NAME = "petstore1";
     public static final int DATABASE_VERSION = 1;
 
     public DatabaseHelper(Context context) {

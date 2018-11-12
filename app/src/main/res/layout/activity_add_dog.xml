@@ -24,7 +24,8 @@
                 android:id="@+id/outthempet"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_back" />
+                android:src="@drawable/ic_back"
+                android:onClick="out"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -38,6 +39,7 @@
     </android.support.v7.widget.Toolbar>
 
     <ImageView
+        android:id="@+id/img"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:src="@drawable/adddog"/>
@@ -132,28 +134,36 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="4dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="5dp"
             android:layout_weight="2.5"
+            android:text="@string/vaccination"
             android:gravity="left|center"
-            android:text="@string/vaccination" />
+            android:layout_marginLeft="5dp"/>
 
-        <CheckBox
-            android:id="@+id/cboYes"
+        <RadioGroup
+            android:id="@+id/radioGroup1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3.75"
-            android:text="@string/injected"
-            android:layout_margin="3dp"/>
+            android:layout_weight="7.5"
+            android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/cboNo"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="3.75"
-            android:text="@string/uninjected"
-            android:layout_margin="3dp"/>
+            <RadioButton
+                android:id="@+id/rboYes"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/injected"
+                android:layout_margin="3dp" />
+
+            <RadioButton
+                android:id="@+id/rboNo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/uninjected"
+                android:layout_margin="3dp" />
+        </RadioGroup>
 
     </LinearLayout>
 

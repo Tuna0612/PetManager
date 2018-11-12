@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -23,17 +23,19 @@ import java.util.List;
 public class AddCatActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private ImageView outthempet;
+    private ImageView imgAnh;
     private EditText edID;
     private Spinner spinLoai;
     private EditText edWeight;
     private Spinner spinHealth;
-    private CheckBox cboYes;
-    private CheckBox cboNo;
+    private RadioButton rboYes;
+    private RadioButton rboNo;
     private EditText edPrice;
     private Button btnSave;
     private Button btnDel;
     private List<Cat> catList;
     private CatDao catDao;
+    public static int Select_Img = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,15 @@ public class AddCatActivity extends AppCompatActivity {
         initView();
         spinnerDog();
         spinnerHealth();
+
+        imgAnh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                startActivityForResult(intent,Select_Img);
+            }
+        });
 
         outthempet.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,10 +69,11 @@ public class AddCatActivity extends AppCompatActivity {
                 String loai = (String) spinLoai.getSelectedItem();
                 String weight = edWeight.getText().toString();
                 String health = (String) spinHealth.getSelectedItem();
+                String injected = rboYes.isSelected() ? "Injected" : "Uninjected";
                 String price = edPrice.getText().toString();
                 Cat cat = null;
                 try {
-                    cat = new Cat(id,loai,weight,health,price);
+                    cat = new Cat(id,loai,weight,health,injected,price);
                 }catch (Exception e){
                     e.printStackTrace();
                 }
@@ -84,20 +96,22 @@ public class AddCatActivity extends AppCompatActivity {
                 spinLoai.setSelection(0);
                 edWeight.setText("");
                 spinHealth.setSelection(0);
+                rboYes.setSelected(true);
                 edPrice.setText("");
             }
         });
     }
 
     public void initView(){
+        imgAnh = findViewById(R.id.img);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         outthempet = (ImageView) findViewById(R.id.outthempet);
         edID = (EditText) findViewById(R.id.edID);
         spinLoai = (Spinner) findViewById(R.id.spinLoai);
         edWeight = (EditText) findViewById(R.id.edWeight);
         spinHealth = (Spinner) findViewById(R.id.spinHealth);
-        cboYes = (CheckBox) findViewById(R.id.cboYes);
-        cboNo = (CheckBox) findViewById(R.id.cboNo);
+        rboYes = (RadioButton) findViewById(R.id.rboYes);
+        rboNo = (RadioButton) findViewById(R.id.rboNo);
         edPrice = (EditText) findViewById(R.id.edPrice);
         btnSave = (Button) findViewById(R.id.btnSave);
         btnDel = (Button) findViewById(R.id.btnDel);

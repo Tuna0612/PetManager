@@ -1,16 +1,16 @@
 package com.anhtu.tuna.petmanager.model;
 
 public class Cat {
-    String mID,mLoai,mWeight,mHealth,mTiem,mPrice;
+    String mID,mLoai,mWeight,mHealth,mInjected,mPrice;
 
 
 
-    public Cat(String mID, String mLoai, String mWeight, String mHealth, String mTiem, String mPrice) {
+    public Cat(String mID, String mLoai, String mWeight, String mHealth, String mInjected, String mPrice) {
         this.mID = mID;
         this.mLoai = mLoai;
         this.mWeight = mWeight;
         this.mHealth = mHealth;
-        this.mTiem = mTiem;
+        this.mInjected = mInjected;
         this.mPrice = mPrice;
     }
 
@@ -57,12 +57,12 @@ public class Cat {
         this.mHealth = mHealth;
     }
 
-    public String getmTiem() {
-        return mTiem;
+    public String getmInjected() {
+        return mInjected;
     }
 
-    public void setmTiem(String mTiem) {
-        this.mTiem = mTiem;
+    public void setmInjected(String mInjected) {
+        this.mInjected = mInjected;
     }
 
     public String getmPrice() {

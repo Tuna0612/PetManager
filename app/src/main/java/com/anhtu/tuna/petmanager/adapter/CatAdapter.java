@@ -64,6 +64,7 @@ public class CatAdapter extends BaseAdapter implements Filterable {
             holder.tvID = view.findViewById(R.id.tvIDPet);
             holder.tvHealth = view.findViewById(R.id.tvHealthPet);
             holder.tvWeight = view.findViewById(R.id.tvWeightPet);
+            holder.tvInjected = view.findViewById(R.id.tvỊnectedPet);
             holder.tvPrice = view.findViewById(R.id.tvPricePet);
             holder.imgEdit = view.findViewById(R.id.btnEdit);
             holder.imgDelete = (ImageView) view.findViewById(R.id.btnDelete);
@@ -110,6 +111,7 @@ public class CatAdapter extends BaseAdapter implements Filterable {
         holder.tvID.setText(_entry.getmID());
         holder.tvHealth.setText("Health: "+_entry.getmHealth());
         holder.tvWeight.setText("Weight: "+_entry.getmWeight()+" Kg");
+        holder.tvInjected.setText(_entry.getmInjected());
         holder.tvPrice.setText("Price: $"+_entry.getmPrice());
         return view;
 
@@ -121,7 +123,7 @@ public class CatAdapter extends BaseAdapter implements Filterable {
     }
 
     public static class ViewHolder {
-        TextView tvID, tvWeight, tvPrice, tvHealth;
+        TextView tvID, tvWeight, tvPrice, tvHealth,tvInjected;
         ImageView imgEdit, imgDelete;
     }
 }

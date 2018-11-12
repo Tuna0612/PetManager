@@ -6,8 +6,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 
+import com.anhtu.tuna.petmanager.adapter.CatAdapter;
 import com.anhtu.tuna.petmanager.adapter.DogAdapter;
+import com.anhtu.tuna.petmanager.dao.CatDao;
 import com.anhtu.tuna.petmanager.dao.DogDao;
+import com.anhtu.tuna.petmanager.model.Albums;
+import com.anhtu.tuna.petmanager.model.Cat;
 import com.anhtu.tuna.petmanager.model.Dog;
 
 import java.util.List;
@@ -15,9 +19,11 @@ import java.util.List;
 public class ListDogActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private ListView lv;
+
+    //Dog
     private DogDao dogDao;
-    private DogAdapter adapter;
-    private List<Dog> list;
+    private DogAdapter Dadapter;
+    private List<Dog> Dlist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +32,24 @@ public class ListDogActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         lv = findViewById(R.id.lv);
         setSupportActionBar(toolbar);
-
         dogDao = new DogDao(ListDogActivity.this);
         try {
-            list = dogDao.getAllDog();
-            adapter = new DogAdapter(this, list);
+            Dlist = dogDao.getAllDog();
+            Dadapter = new DogAdapter(this, Dlist);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        lv.setAdapter(adapter);
+        lv.setAdapter(Dadapter);
     }
 
     public void out(View view) {
         finish();
     }
+
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        Dlist = dogDao.getAllDog();
+//        Dadapter.changeDataset(Dlist);
+//    }
 }
