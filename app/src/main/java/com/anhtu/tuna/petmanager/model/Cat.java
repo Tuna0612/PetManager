@@ -1,7 +1,8 @@
 package com.anhtu.tuna.petmanager.model;
 
 public class Cat {
-    String mID,mLoai,mWeight,mHealth,mInjected,mPrice;
+    private String mID,mLoai,mWeight,mHealth,mInjected,mPrice;
+    private byte[] image;
 
 
 
@@ -20,6 +21,16 @@ public class Cat {
         this.mWeight = mWeight;
         this.mHealth = mHealth;
         this.mPrice = mPrice;
+    }
+
+    public Cat(String mID, String mLoai, String mWeight, String mHealth, String mInjected, String mPrice, byte[] image) {
+        this.mID = mID;
+        this.mLoai = mLoai;
+        this.mWeight = mWeight;
+        this.mHealth = mHealth;
+        this.mInjected = mInjected;
+        this.mPrice = mPrice;
+        this.image = image;
     }
 
     public Cat() {
@@ -71,5 +82,13 @@ public class Cat {
 
     public void setmPrice(String mPrice) {
         this.mPrice = mPrice;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }

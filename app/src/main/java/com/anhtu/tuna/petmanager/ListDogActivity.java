@@ -32,6 +32,7 @@ public class ListDogActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         lv = findViewById(R.id.lv);
         setSupportActionBar(toolbar);
+
         dogDao = new DogDao(ListDogActivity.this);
         try {
             Dlist = dogDao.getAllDog();

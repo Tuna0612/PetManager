@@ -17,9 +17,7 @@ import android.widget.TextView;
 
 import com.anhtu.tuna.petmanager.EditPET;
 import com.anhtu.tuna.petmanager.R;
-import com.anhtu.tuna.petmanager.dao.CatDao;
 import com.anhtu.tuna.petmanager.dao.DogDao;
-import com.anhtu.tuna.petmanager.model.Cat;
 import com.anhtu.tuna.petmanager.model.Dog;
 import com.bumptech.glide.Glide;
 
@@ -60,7 +58,6 @@ public class DogAdapter extends BaseAdapter implements Filterable {
 
     @Override
     public View getView(final int position, View view, ViewGroup viewGroup) {
-
         Dog dog = dogList.get(position);
         DogAdapter.ViewHolder holder;
         if (view == null) {
@@ -74,7 +71,6 @@ public class DogAdapter extends BaseAdapter implements Filterable {
             holder.imgEdit = view.findViewById(R.id.btnEdit);
             holder.imgAvatar = view.findViewById(R.id.imgPet);
             holder.imgDelete = (ImageView) view.findViewById(R.id.btnDelete);
-
 
             Glide.with(context).load(dog.getImage()).into(holder.imgAvatar);
 
@@ -134,10 +130,5 @@ public class DogAdapter extends BaseAdapter implements Filterable {
     public static class ViewHolder {
         TextView tvID, tvWeight, tvPrice, tvHealth,tvInjected;
         ImageView imgEdit, imgDelete,imgAvatar;
-    }
-
-    public void changeDataset(List<Dog> items) {
-        this.dogList = items;
-        notifyDataSetChanged();
     }
 }

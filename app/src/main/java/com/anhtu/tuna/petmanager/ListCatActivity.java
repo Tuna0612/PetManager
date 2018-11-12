@@ -15,6 +15,8 @@ import java.util.List;
 public class ListCatActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private ListView lv;
+
+
     private CatDao catDao;
     private CatAdapter adapter;
     private List<Cat> list;

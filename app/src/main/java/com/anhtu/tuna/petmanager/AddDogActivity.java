@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -21,7 +20,6 @@ import android.widget.Toast;
 
 import com.anhtu.tuna.petmanager.dao.DogDao;
 import com.anhtu.tuna.petmanager.model.Dog;
-import com.bumptech.glide.Glide;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -53,13 +51,6 @@ public class AddDogActivity extends AppCompatActivity {
         initView();
         spinnerDog();
         spinnerHealth();
-
-        outthempet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
 
         imgAnh.setOnClickListener(new View.OnClickListener() {
             @Override

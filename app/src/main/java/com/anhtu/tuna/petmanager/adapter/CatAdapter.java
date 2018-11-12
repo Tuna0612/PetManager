@@ -19,12 +19,13 @@ import com.anhtu.tuna.petmanager.EditPET;
 import com.anhtu.tuna.petmanager.R;
 import com.anhtu.tuna.petmanager.dao.CatDao;
 import com.anhtu.tuna.petmanager.model.Cat;
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
 public class CatAdapter extends BaseAdapter implements Filterable {
-    List<Cat> catList;
-    List<Cat> listSort;
+    private List<Cat> catList;
+    private List<Cat> listSort;
     private Filter CatFilter;
     private Activity context;
     private CatDao catDao;
@@ -57,6 +58,7 @@ public class CatAdapter extends BaseAdapter implements Filterable {
 
     @Override
     public View getView(final int position, View view, ViewGroup viewGroup) {
+        Cat cat = catList.get(position);
         final ViewHolder holder;
         if (view == null) {
             holder = new ViewHolder();
@@ -68,6 +70,9 @@ public class CatAdapter extends BaseAdapter implements Filterable {
             holder.tvPrice = view.findViewById(R.id.tvPricePet);
             holder.imgEdit = view.findViewById(R.id.btnEdit);
             holder.imgDelete = (ImageView) view.findViewById(R.id.btnDelete);
+            holder.imgAvatar = view.findViewById(R.id.imgPet);
+
+            Glide.with(context).load(cat.getImage()).into(holder.imgAvatar);
 
             holder.imgEdit.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -82,6 +87,7 @@ public class CatAdapter extends BaseAdapter implements Filterable {
                     context.startActivity(intent);
                 }
             });
+
             holder.imgDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -114,7 +120,6 @@ public class CatAdapter extends BaseAdapter implements Filterable {
         holder.tvInjected.setText(_entry.getmInjected());
         holder.tvPrice.setText("Price: $"+_entry.getmPrice());
         return view;
-
     }
 
     @Override
@@ -124,6 +129,6 @@ public class CatAdapter extends BaseAdapter implements Filterable {
 
     public static class ViewHolder {
         TextView tvID, tvWeight, tvPrice, tvHealth,tvInjected;
-        ImageView imgEdit, imgDelete;
+        ImageView imgEdit, imgDelete,imgAvatar;
     }
 }

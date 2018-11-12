@@ -1,6 +1,10 @@
 package com.anhtu.tuna.petmanager;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -17,6 +21,9 @@ import android.widget.Toast;
 import com.anhtu.tuna.petmanager.dao.CatDao;
 import com.anhtu.tuna.petmanager.model.Cat;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +42,7 @@ public class AddCatActivity extends AppCompatActivity {
     private Button btnDel;
     private List<Cat> catList;
     private CatDao catDao;
-    public static int Select_Img = 1;
+    public final int SELECT_PHOTO = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,14 +57,7 @@ public class AddCatActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setType("image/*");
-                startActivityForResult(intent,Select_Img);
-            }
-        });
-
-        outthempet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
+                startActivityForResult(intent,SELECT_PHOTO);
             }
         });
 
@@ -73,7 +73,7 @@ public class AddCatActivity extends AppCompatActivity {
                 String price = edPrice.getText().toString();
                 Cat cat = null;
                 try {
-                    cat = new Cat(id,loai,weight,health,injected,price);
+                    cat = new Cat(id,loai,weight,health,injected,price,ImageViewChange(imgAnh));
                 }catch (Exception e){
                     e.printStackTrace();
                 }
@@ -100,6 +100,34 @@ public class AddCatActivity extends AppCompatActivity {
                 edPrice.setText("");
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
+        super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
+
+        switch(requestCode) {
+            case SELECT_PHOTO:
+                if(resultCode == RESULT_OK){
+                    try {
+                        final Uri imageUri = imageReturnedIntent.getData();
+                        final InputStream imageStream = getContentResolver().openInputStream(imageUri);
+                        final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                        imgAnh.setImageBitmap(selectedImage);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+        }
+    }
+
+    private byte[] ImageViewChange(ImageView imageView) {
+        BitmapDrawable drawable = (BitmapDrawable) imageView.getDrawable();
+        Bitmap bitmap = drawable.getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        return stream.toByteArray();
     }
 
     public void initView(){

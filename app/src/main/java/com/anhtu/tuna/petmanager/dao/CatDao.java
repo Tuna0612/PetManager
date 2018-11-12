@@ -21,9 +21,10 @@ public class CatDao {
     public static final String COLUMN_HEALTH = "suckhoe";
     public static final String COLUMN_ỊNECTED = "tiem";
     public static final String COLUMN_PRICE = "gia";
+    public static final String COLUMN_IMAGE = "image";
     public static final String SQL_CAT= "CREATE TABLE "+TABLE_NAME_CAT+" ("
             +COLUMN_ID+" text primary key, "+COLUMN_LOAI+" text, "+COLUMN_WEIGHT
-            +" text, "+COLUMN_HEALTH+" text, "+COLUMN_ỊNECTED+" text, "+COLUMN_PRICE+" text);";
+            +" text, "+COLUMN_HEALTH+" text, "+COLUMN_ỊNECTED+" text, "+COLUMN_PRICE+" text, "+COLUMN_IMAGE+" Blob);";
     public static final String TAG = "CAT_DAO";
 
     public CatDao(Context context) {
@@ -39,6 +40,7 @@ public class CatDao {
         values.put(COLUMN_HEALTH, cat.getmHealth());
         values.put(COLUMN_ỊNECTED,cat.getmInjected());
         values.put(COLUMN_PRICE, cat.getmPrice());
+        values.put(COLUMN_IMAGE,cat.getImage());
         try {
             if (db.insert(TABLE_NAME_CAT, null, values) == -1) {
                 return -1;
@@ -57,6 +59,7 @@ public class CatDao {
         values.put(COLUMN_HEALTH, cat.getmHealth());
         values.put(COLUMN_ỊNECTED,cat.getmInjected());
         values.put(COLUMN_PRICE, cat.getmPrice());
+        values.put(COLUMN_IMAGE,cat.getImage());
         int result = db.update(TABLE_NAME_CAT, values, "id=?", new String[]{cat.getmID()});
         if (result == 0) {
             return -1;
@@ -68,6 +71,7 @@ public class CatDao {
         List<Cat> dsCat = new ArrayList<>();
         Cursor c = db.query(TABLE_NAME_CAT, null, null, null, null, null, null);
         c.moveToFirst();
+        if (c!= null && c.getCount()>0)
         while (c.isAfterLast() == false) {
             Cat ee = new Cat();
             ee.setmID(c.getString(0));
@@ -76,6 +80,7 @@ public class CatDao {
             ee.setmHealth(c.getString(3));
             ee.setmInjected(c.getString(4));
             ee.setmPrice(c.getString(5));
+            ee.setImage(c.getBlob(6));
             dsCat.add(ee);
             Log.d("//=====", ee.toString());
             c.moveToNext();
@@ -90,5 +95,4 @@ public class CatDao {
             return -1;
         return 1;
     }
-
 }
