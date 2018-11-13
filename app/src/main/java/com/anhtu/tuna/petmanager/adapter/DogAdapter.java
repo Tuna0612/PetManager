@@ -82,7 +82,9 @@ public class DogAdapter extends BaseAdapter implements Filterable {
                     bundle.putString("id", dogList.get(position).getmID());
                     bundle.putString("weight", dogList.get(position).getmWeight());
                     bundle.putString("health", dogList.get(position).getmHealth());
+                    bundle.putString("injected",dogList.get(position).getmInjected());
                     bundle.putString("price", dogList.get(position).getmPrice());
+                    bundle.putByteArray("images", dogList.get(position).getImage());
                     intent.putExtras(bundle);
                     context.startActivity(intent);
                 }

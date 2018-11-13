@@ -39,6 +39,7 @@
     </android.support.v7.widget.Toolbar>
 
     <ImageView
+        android:id="@+id/imgAnh"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:src="@drawable/imagespet"/>
@@ -57,7 +58,7 @@
             android:layout_marginLeft="5dp"/>
 
         <TextView
-            android:id="@+id/tvD"
+            android:id="@+id/tvID"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="7.5" />
@@ -106,7 +107,44 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"
+            android:text="@string/vaccination"
+            android:gravity="left|center"
+            android:layout_marginLeft="5dp"/>
+
+        <RadioGroup
+            android:id="@+id/radioGroup1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7.5"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rboYes"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/injected"
+                android:layout_margin="3dp" />
+
+            <RadioButton
+                android:id="@+id/rboNo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/uninjected"
+                android:layout_margin="3dp" />
+        </RadioGroup>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
