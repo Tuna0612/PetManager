@@ -1,6 +1,8 @@
 package com.anhtu.tuna.petmanager;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -53,12 +55,15 @@ public class EditPET extends AppCompatActivity {
         String health = b.getString("health");
         String injected = b.getString("injected");
         String price = b != null ? b.getString("price") : null;
-        Glide.with(EditPET.this).load(b.getByteArray("images")).into(imgAnh);
+        byte[] imgAvatar = b.getByteArray("images");
+        Bitmap imgBitmap = BitmapFactory.decodeByteArray(imgAvatar, 0, imgAvatar.length);
+//        Glide.with(EditPET.this).load(b.getByteArray("images")).into(imgAnh);
         tvID.setText(id);
         edWeight.setText(weight);
         edHealth.setText(health);
         edPrice.setText(price);
         rboYes.setSelected(Boolean.parseBoolean(injected));
+        imgAnh.setImageBitmap(imgBitmap);
 
 
     }
