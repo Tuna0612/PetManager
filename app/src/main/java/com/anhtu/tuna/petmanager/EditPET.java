@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -55,15 +56,21 @@ public class EditPET extends AppCompatActivity {
         String health = b.getString("health");
         String injected = b.getString("injected");
         String price = b != null ? b.getString("price") : null;
-        byte[] imgAvatar = b.getByteArray("images");
-        Bitmap imgBitmap = BitmapFactory.decodeByteArray(imgAvatar, 0, imgAvatar.length);
+        int[] img =b!=null? b.getIntArray("images"):null;
+        Log.e("img", img+"");
+//        byte[] imgAvatar = b.getByteArray("images");
+//        Intent returnIntent = new Intent();
+//        returnIntent.putExtra("img", imgAvatar);
+//        setResult(RESULT_OK, returnIntent);
+//        Log.e("bitmapImageAvatar", imgAvatar+"");
+//        Bitmap imgBitmap = BitmapFactory.decodeByteArray(imgAvatar, 0, imgAvatar.length);
 //        Glide.with(EditPET.this).load(b.getByteArray("images")).into(imgAnh);
         tvID.setText(id);
         edWeight.setText(weight);
         edHealth.setText(health);
         edPrice.setText(price);
         rboYes.setSelected(Boolean.parseBoolean(injected));
-        imgAnh.setImageBitmap(imgBitmap);
+//        imgAnh.setImageBitmap(imgBitmap);
 
 
     }
