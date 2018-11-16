@@ -14,22 +14,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppThemeNoActionBar">
-        <activity android:name=".StartActivity">
+        <activity android:name="com.anhtu.tuna.petmanager.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name="com.anhtu.tuna.petmanager.MainActivity" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".AddDogActivity" />
-        <activity android:name=".ListDogActivity" />
-        <activity android:name=".EditPET" />
-        <activity android:name=".AddCatActivity" />
-        <activity android:name=".ListCatActivity"></activity>
+        <activity android:name="com.anhtu.tuna.petmanager.AddDogActivity" />
+        <activity android:name="com.anhtu.tuna.petmanager.ListDogActivity" />
+        <activity android:name="com.anhtu.tuna.petmanager.EditPET" />
+        <activity android:name="com.anhtu.tuna.petmanager.AddCatActivity" />
+        <activity android:name="com.anhtu.tuna.petmanager.ListCatActivity"></activity>
     </application>
 
 </manifest>

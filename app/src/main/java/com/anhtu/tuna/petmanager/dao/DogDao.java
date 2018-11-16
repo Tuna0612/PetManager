@@ -3,11 +3,11 @@ package com.anhtu.tuna.petmanager.dao;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.anhtu.tuna.petmanager.database.DatabaseHelper;
 import com.anhtu.tuna.petmanager.model.Dog;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ public class DogDao {
     public static final String COLUMN_IMAGE = "image";
     public static final String SQL_DOG= "CREATE TABLE "+TABLE_NAME_DOG+" ("
             +COLUMN_ID+" text primary key, "+COLUMN_LOAI+" text, "+COLUMN_WEIGHT
-            +" text, "+COLUMN_HEALTH+" text, "+COLUMN_ỊNECTED+" text, "+COLUMN_PRICE+" text, "+COLUMN_IMAGE+" Blob);";
+            +" text, "+COLUMN_HEALTH+" text, "+COLUMN_ỊNECTED+" text, "+COLUMN_PRICE+" text, "+COLUMN_IMAGE+" Blob)";
     public static final String TAG = "CAT_DAO";
 
     public DogDao(Context context) {
