@@ -31,8 +31,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddCatActivity extends AppCompatActivity {
-    private Toolbar toolbar;
-    private ImageView outthempet;
     private ImageView imgAnh;
     private EditText edID;
     private Spinner spinLoai;
@@ -44,7 +42,6 @@ public class AddCatActivity extends AppCompatActivity {
     private EditText edPrice;
     private Button btnSave;
     private Button btnDel;
-    private List<Cat> catList;
     private CatDao catDao;
     private String injected;
     private final int SELECT_PHOTO = 1;
@@ -151,8 +148,6 @@ public class AddCatActivity extends AppCompatActivity {
 
     public void initView(){
         imgAnh = findViewById(R.id.img);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        outthempet = (ImageView) findViewById(R.id.outthempet);
         edID = (EditText) findViewById(R.id.edID);
         spinLoai = (Spinner) findViewById(R.id.spinLoai);
         edWeight = (EditText) findViewById(R.id.edWeight);

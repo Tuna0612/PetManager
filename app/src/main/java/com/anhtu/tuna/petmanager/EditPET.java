@@ -31,14 +31,7 @@ public class EditPET extends AppCompatActivity {
     private EditText edWeight;
     private EditText edHealth;
     private EditText edPrice;
-    private RadioGroup radioGroup1;
     private RadioButton rboYes;
-    private RadioButton rboNo;
-    private Button btnSave;
-    private Button btnDel;
-    private List<Cat> catList;
-    private CatDao catDao;
-    private DogDao dogDao;
     private ImageView imgAnh;
     private final int SELECT_PHOTO = 1;
 
@@ -48,9 +41,6 @@ public class EditPET extends AppCompatActivity {
         setContentView(R.layout.activity_edit_pet);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        catDao = new CatDao(getApplicationContext());
-        dogDao = new DogDao(getApplicationContext());
         initView();
 
         Intent in = getIntent();
@@ -62,19 +52,6 @@ public class EditPET extends AppCompatActivity {
         String price = b != null ? b.getString("price") : null;
         int[] img =b!=null? b.getIntArray("images"):null;
         Log.e("img", img+"");
-//        byte[] imgAvatar = b.getByteArray("images");
-//        Intent returnIntent = new Intent();
-//        returnIntent.putExtra("img", imgAvatar);
-//        setResult(RESULT_OK, returnIntent);
-//        Log.e("bitmapImageAvatar", imgAvatar+"");
-//        Bitmap imgBitmap = BitmapFactory.decodeByteArray(imgAvatar, 0, imgAvatar.length);
-//        Glide.with(EditPET.this).load(b.getByteArray("images")).into(imgAnh);
-        tvID.setText(id);
-        edWeight.setText(weight);
-        edHealth.setText(health);
-        edPrice.setText(price);
-        rboYes.setSelected(Boolean.parseBoolean(injected));
-//        imgAnh.setImageBitmap(imgBitmap);
 
         imgAnh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,12 +71,8 @@ public class EditPET extends AppCompatActivity {
         edWeight = (EditText) findViewById(R.id.edWeight);
         edHealth = (EditText) findViewById(R.id.edHealth);
         edPrice = (EditText) findViewById(R.id.edPrice);
-        btnSave = (Button) findViewById(R.id.btnSave);
-        btnDel = (Button) findViewById(R.id.btnDel);
         imgAnh = findViewById(R.id.imgAnh);
-        radioGroup1 = (RadioGroup) findViewById(R.id.radioGroup1);
         rboYes = (RadioButton) findViewById(R.id.rboYes);
-        rboNo = (RadioButton) findViewById(R.id.rboNo);
     }
 
     @Override

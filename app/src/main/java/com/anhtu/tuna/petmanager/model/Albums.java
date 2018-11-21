@@ -18,9 +18,6 @@ public class Albums {
         this.type = type;
     }
 
-    public Albums() {
-    }
-
     public Albums(String name, int numOfPet, int thumbnail) {
         this.name = name;
         this.numOfPet = numOfPet;

@@ -37,11 +37,9 @@ import java.util.List;
 public class DogAdapter extends BaseAdapter implements Filterable {
     List<Dog> dogList;
     List<Dog> listSort;
-    private Filter DogFilter;
     private Activity context;
     private DogDao dogDao;
 
-    private ImageView outeditpet;
     private ImageView imgAnh;
     private TextView tvID;
     private EditText edWeight;

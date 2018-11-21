@@ -17,15 +17,6 @@ public class Dog {
         this.image = image;
     }
 
-    public Dog(String mID, String mLoai, String mWeight, String mHealth, String mInjected, String mPrice) {
-        this.mID = mID;
-        this.mLoai = mLoai;
-        this.mWeight = mWeight;
-        this.mHealth = mHealth;
-        this.mInjected = mInjected;
-        this.mPrice = mPrice;
-    }
-
     public Dog(String mID, String mLoai, String mWeight, String mHealth, String mInjected, String mPrice, byte[] image) {
         this.mID = mID;
         this.mLoai = mLoai;

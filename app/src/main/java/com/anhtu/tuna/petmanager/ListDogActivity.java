@@ -46,11 +46,4 @@ public class ListDogActivity extends AppCompatActivity {
     public void out(View view) {
         finish();
     }
-
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        Dlist = dogDao.getAllDog();
-//        Dadapter.changeDataset(Dlist);
-//    }
 }

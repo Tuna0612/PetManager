@@ -28,8 +28,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AddDogActivity extends AppCompatActivity {
-    private Toolbar toolbar;
-    private ImageView outthempet;
     private ImageView imgAnh;
     private EditText edID;
     private Spinner spinLoai;
@@ -41,7 +39,6 @@ public class AddDogActivity extends AppCompatActivity {
     private EditText edPrice;
     private Button btnSave;
     private Button btnDel;
-    private List<Dog> listDog;
     private DogDao dogDao;
     private String injected;
     private final int SELECT_PHOTO = 1;
@@ -147,8 +144,6 @@ public class AddDogActivity extends AppCompatActivity {
     }
 
     public void initView(){
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        outthempet = (ImageView) findViewById(R.id.outthempet);
         imgAnh = findViewById(R.id.img);
         edID = (EditText) findViewById(R.id.edID);
         spinLoai = (Spinner) findViewById(R.id.spinLoai);

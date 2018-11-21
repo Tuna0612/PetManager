@@ -38,11 +38,9 @@ import java.util.List;
 public class CatAdapter extends BaseAdapter implements Filterable {
     private List<Cat> catList;
     private List<Cat> listSort;
-    private Filter CatFilter;
     private Activity context;
     private CatDao catDao;
 
-    private ImageView outeditpet;
     private ImageView imgAnh;
     private TextView tvID;
     private EditText edWeight;
