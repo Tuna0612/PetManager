@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,13 +22,16 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.anhtu.tuna.petmanager.EditPET;
+import com.anhtu.tuna.petmanager.ListDogActivity;
 import com.anhtu.tuna.petmanager.R;
 import com.anhtu.tuna.petmanager.dao.DogDao;
 import com.anhtu.tuna.petmanager.model.Dog;
 import com.bumptech.glide.Glide;
 
+import java.io.ByteArrayOutputStream;
 import java.util.List;
 
 public class DogAdapter extends BaseAdapter implements Filterable {
@@ -46,6 +50,7 @@ public class DogAdapter extends BaseAdapter implements Filterable {
     private RadioButton rboYes;
     private RadioButton rboNo;
     private EditText edPrice;
+    private String inject;
 
     private final LayoutInflater inflater;
 
@@ -74,7 +79,7 @@ public class DogAdapter extends BaseAdapter implements Filterable {
     }
 
     @Override
-    public View getView(final int position, View view, ViewGroup viewGroup) {
+    public View getView(final int position, View view, final ViewGroup viewGroup) {
         Dog dog = dogList.get(position);
         DogAdapter.ViewHolder holder;
         if (view == null) {
@@ -96,19 +101,8 @@ public class DogAdapter extends BaseAdapter implements Filterable {
                 public void onClick(View view) {
 
                     Log.e("injection", dogList.get(position).getmInjected()+"");
-//                    Intent intent = new Intent(context, EditPET.class);
-//                    Bundle bundle = new Bundle();
-//                    bundle.putString("id", dogList.get(position).getmID());
-//                    bundle.putString("weight", dogList.get(position).getmWeight());
-//                    bundle.putString("health", dogList.get(position).getmHealth());
-//                    bundle.putString("injected",dogList.get(position).getmInjected());
-//                    bundle.putString("price", dogList.get(position).getmPrice());
-//                    bundle.putByteArray("images", dogList.get(position).getImage());
-//
-//                    intent.putExtras(bundle);
-//                    context.startActivity(intent);
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(context);
                     builder.setTitle("Edit Pet");
                     LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                     View viewDialog = inflater.inflate(R.layout.activity_edit_pet, null);
@@ -117,6 +111,7 @@ public class DogAdapter extends BaseAdapter implements Filterable {
                     tvID = (TextView) viewDialog.findViewById(R.id.tvID);
                     edWeight = (EditText) viewDialog.findViewById(R.id.edWeight);
                     edHealth = (EditText) viewDialog.findViewById(R.id.edHealth);
+                    radioGroup1 = viewDialog.findViewById(R.id.radioGroup1);
                     rboYes = (RadioButton) viewDialog.findViewById(R.id.rboYes);
                     rboNo = (RadioButton) viewDialog.findViewById(R.id.rboNo);
                     edPrice = (EditText) viewDialog.findViewById(R.id.edPrice);
@@ -127,17 +122,49 @@ public class DogAdapter extends BaseAdapter implements Filterable {
                     tvID.setText(dogList.get(position).getmID());
                     edWeight.setText(dogList.get(position).getmWeight());
                     edHealth.setText(dogList.get(position).getmHealth());
-                    if (dogList.get(position).getmInjected().equalsIgnoreCase("uninjected")){
-                        rboNo.setSelected(true);
-                    }else{
-                        rboYes.setSelected(true);
+                    final String injected = dogList.get(position).getmInjected();
+                    if (injected.equals("Injected")) {
+                        rboYes.setChecked(true);
+                    } else {
+                        rboNo.setChecked(true);
                     }
                     edPrice.setText(dogList.get(position).getmPrice());
 
                     builder.setPositiveButton("SAVE", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            String id = tvID.getText().toString();
+                            String weight = edWeight.getText().toString();
+                            String health = edHealth.getText().toString();
+                            String price = edPrice.getText().toString();
+                            radioGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                                @Override
+                                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                                    if (rboYes.isChecked()) {
+                                        inject = "Injected";
+                                    } else if (rboNo.isChecked()) {
+                                        inject = "Uninjected";
+                                    }
+                                }
+                            });
+                            if (rboYes.isChecked()) {
+                                inject = "Injected";
+                            } else if (rboNo.isChecked()) {
+                                inject = "Uninjected";
+                            }
+                            Dog dog = null;
+                            try {
+                                dog = new Dog(id,weight,health,inject,price,ImageViewChange(imgAnh));
+                            }catch (Exception e){
+                                e.printStackTrace();
+                            }
 
+                            if (dogDao.updateDog(dog) > 0) {
+                                Toast.makeText(context, "Add successfully", Toast.LENGTH_SHORT).show();
+
+                                context.finish();
+                                context.startActivity(new Intent(context, ListDogActivity.class));
+                            }
                         }
                     });
                     builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
@@ -195,5 +222,13 @@ public class DogAdapter extends BaseAdapter implements Filterable {
     public static class ViewHolder {
         TextView tvID, tvWeight, tvPrice, tvHealth,tvInjected;
         ImageView imgEdit, imgDelete,imgAvatar;
+    }
+
+    private byte[] ImageViewChange(ImageView imageView) {
+        BitmapDrawable drawable = (BitmapDrawable) imageView.getDrawable();
+        Bitmap bitmap = drawable.getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        return stream.toByteArray();
     }
 }

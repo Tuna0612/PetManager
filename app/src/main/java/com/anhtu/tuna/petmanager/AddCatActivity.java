@@ -15,11 +15,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.anhtu.tuna.petmanager.dao.CatDao;
+import com.anhtu.tuna.petmanager.dao.DogDao;
 import com.anhtu.tuna.petmanager.model.Cat;
+import com.anhtu.tuna.petmanager.model.Dog;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -35,6 +38,7 @@ public class AddCatActivity extends AppCompatActivity {
     private Spinner spinLoai;
     private EditText edWeight;
     private Spinner spinHealth;
+    private RadioGroup rg;
     private RadioButton rboYes;
     private RadioButton rboNo;
     private EditText edPrice;
@@ -42,7 +46,8 @@ public class AddCatActivity extends AppCompatActivity {
     private Button btnDel;
     private List<Cat> catList;
     private CatDao catDao;
-    public final int SELECT_PHOTO = 1;
+    private String injected;
+    private final int SELECT_PHOTO = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,8 +74,22 @@ public class AddCatActivity extends AppCompatActivity {
                 String loai = (String) spinLoai.getSelectedItem();
                 String weight = edWeight.getText().toString();
                 String health = (String) spinHealth.getSelectedItem();
-                String injected = rboYes.isSelected() ? "Injected" : "Uninjected";
                 String price = edPrice.getText().toString();
+                rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                        if (rboYes.isChecked()) {
+                            injected = "Injected";
+                        } else if (rboNo.isChecked()) {
+                            injected = "Uninjected";
+                        }
+                    }
+                });
+                if (rboYes.isChecked()) {
+                    injected = "Injected";
+                } else if (rboNo.isChecked()) {
+                    injected = "Uninjected";
+                }
                 Cat cat = null;
                 try {
                     cat = new Cat(id,loai,weight,health,injected,price,ImageViewChange(imgAnh));
@@ -138,6 +157,7 @@ public class AddCatActivity extends AppCompatActivity {
         spinLoai = (Spinner) findViewById(R.id.spinLoai);
         edWeight = (EditText) findViewById(R.id.edWeight);
         spinHealth = (Spinner) findViewById(R.id.spinHealth);
+        rg = findViewById(R.id.radioGroup1);
         rboYes = (RadioButton) findViewById(R.id.rboYes);
         rboNo = (RadioButton) findViewById(R.id.rboNo);
         edPrice = (EditText) findViewById(R.id.edPrice);

@@ -1,12 +1,12 @@
 package com.anhtu.tuna.petmanager.database;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.anhtu.tuna.petmanager.dao.CatDao;
 import com.anhtu.tuna.petmanager.dao.DogDao;
 
-@SuppressWarnings("ALL")
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "petstore1";
@@ -20,9 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(CatDao.SQL_CAT);
         sqLiteDatabase.execSQL(DogDao.SQL_DOG);
-
     }
-
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {

@@ -8,12 +8,13 @@ public class Dog {
     public Dog() {
     }
 
-    public Dog(String mID, String mLoai, String mWeight, String mHealth, String mPrice) {
+    public Dog(String mID,  String mWeight, String mHealth, String mInjected, String mPrice, byte[] image) {
         this.mID = mID;
-        this.mLoai = mLoai;
         this.mWeight = mWeight;
         this.mHealth = mHealth;
+        this.mInjected = mInjected;
         this.mPrice = mPrice;
+        this.image = image;
     }
 
     public Dog(String mID, String mLoai, String mWeight, String mHealth, String mInjected, String mPrice) {

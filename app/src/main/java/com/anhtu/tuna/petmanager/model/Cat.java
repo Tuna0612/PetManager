@@ -6,21 +6,13 @@ public class Cat {
 
 
 
-    public Cat(String mID, String mLoai, String mWeight, String mHealth, String mInjected, String mPrice) {
+    public Cat(String mID,  String mWeight, String mHealth, String mInjected, String mPrice, byte[] image) {
         this.mID = mID;
-        this.mLoai = mLoai;
         this.mWeight = mWeight;
         this.mHealth = mHealth;
         this.mInjected = mInjected;
         this.mPrice = mPrice;
-    }
-
-    public Cat(String mID, String mLoai, String mWeight, String mHealth, String mPrice) {
-        this.mID = mID;
-        this.mLoai = mLoai;
-        this.mWeight = mWeight;
-        this.mHealth = mHealth;
-        this.mPrice = mPrice;
+        this.image = image;
     }
 
     public Cat(String mID, String mLoai, String mWeight, String mHealth, String mInjected, String mPrice, byte[] image) {

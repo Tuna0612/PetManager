@@ -3,6 +3,7 @@ package com.anhtu.tuna.petmanager.dao;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.anhtu.tuna.petmanager.database.DatabaseHelper;
@@ -54,7 +55,6 @@ public class DogDao {
     public int updateDog(Dog dog) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_ID, dog.getmID());
-        values.put(COLUMN_LOAI, dog.getmLoai());
         values.put(COLUMN_WEIGHT, dog.getmWeight());
         values.put(COLUMN_HEALTH, dog.getmHealth());
         values.put(COLUMN_ỊNECTED,dog.getmInjected());
@@ -95,4 +95,5 @@ public class DogDao {
             return -1;
         return 1;
     }
+
 }
