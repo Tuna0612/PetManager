@@ -31,20 +31,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         //Cat
-        sqLiteDatabase.execSQL(CatEgyptianDao.SQL_CAT);
-        sqLiteDatabase.execSQL(CatHimalayaDao.SQL_CAT);
-        sqLiteDatabase.execSQL(CatLapernDao.SQL_CAT);
-        sqLiteDatabase.execSQL(CatMaineDao.SQL_CAT);
-        sqLiteDatabase.execSQL(CatScootishDao.SQL_CAT);
-        sqLiteDatabase.execSQL(CatPeterbaldDao.SQL_CAT);
+        sqLiteDatabase.execSQL(CatEgyptianDao.SQL_Egyptian_CAT);
+        sqLiteDatabase.execSQL(CatHimalayaDao.SQL_Himalaya_CAT);
+        sqLiteDatabase.execSQL(CatLapernDao.SQL_Lapern_CAT);
+        sqLiteDatabase.execSQL(CatMaineDao.SQL_Maine_CAT);
+        sqLiteDatabase.execSQL(CatScootishDao.SQL_Scootish_CAT);
+        sqLiteDatabase.execSQL(CatPeterbaldDao.SQL_Peterbald_CAT);
 
         //Dog
-        sqLiteDatabase.execSQL(DogAlaskaDao.SQL_DOG);
-        sqLiteDatabase.execSQL(DogBecgieDao.SQL_DOG);
-        sqLiteDatabase.execSQL(DogGoldenDao.SQL_DOG);
-        sqLiteDatabase.execSQL(DogHuskyDao.SQL_DOG);
-        sqLiteDatabase.execSQL(DogPooldyDao.SQL_DOG);
-        sqLiteDatabase.execSQL(DogSamoyedDao.SQL_DOG);
+        sqLiteDatabase.execSQL(DogAlaskaDao.SQL_Alaska_DOG);
+        sqLiteDatabase.execSQL(DogBecgieDao.SQL_Becgie_DOG);
+        sqLiteDatabase.execSQL(DogGoldenDao.SQL_Golden_DOG);
+        sqLiteDatabase.execSQL(DogHuskyDao.SQL_Husky_DOG);
+        sqLiteDatabase.execSQL(DogPooldyDao.SQL_Pooldy_DOG);
+        sqLiteDatabase.execSQL(DogSamoyedDao.SQL_Samoyed_DOG);
     }
 
     @Override
