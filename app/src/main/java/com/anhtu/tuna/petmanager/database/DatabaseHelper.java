@@ -5,7 +5,19 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.anhtu.tuna.petmanager.dao.CatDao;
+import com.anhtu.tuna.petmanager.dao.CatEgyptianDao;
+import com.anhtu.tuna.petmanager.dao.CatHimalayaDao;
+import com.anhtu.tuna.petmanager.dao.CatLapernDao;
+import com.anhtu.tuna.petmanager.dao.CatMaineDao;
+import com.anhtu.tuna.petmanager.dao.CatPeterbaldDao;
+import com.anhtu.tuna.petmanager.dao.CatScootishDao;
+import com.anhtu.tuna.petmanager.dao.DogAlaskaDao;
+import com.anhtu.tuna.petmanager.dao.DogBecgieDao;
 import com.anhtu.tuna.petmanager.dao.DogDao;
+import com.anhtu.tuna.petmanager.dao.DogGoldenDao;
+import com.anhtu.tuna.petmanager.dao.DogHuskyDao;
+import com.anhtu.tuna.petmanager.dao.DogPooldyDao;
+import com.anhtu.tuna.petmanager.dao.DogSamoyedDao;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -18,8 +30,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(CatDao.SQL_CAT);
-        sqLiteDatabase.execSQL(DogDao.SQL_DOG);
+        //Cat
+        sqLiteDatabase.execSQL(CatEgyptianDao.SQL_CAT);
+        sqLiteDatabase.execSQL(CatHimalayaDao.SQL_CAT);
+        sqLiteDatabase.execSQL(CatLapernDao.SQL_CAT);
+        sqLiteDatabase.execSQL(CatMaineDao.SQL_CAT);
+        sqLiteDatabase.execSQL(CatScootishDao.SQL_CAT);
+        sqLiteDatabase.execSQL(CatPeterbaldDao.SQL_CAT);
+
+        //Dog
+        sqLiteDatabase.execSQL(DogAlaskaDao.SQL_DOG);
+        sqLiteDatabase.execSQL(DogBecgieDao.SQL_DOG);
+        sqLiteDatabase.execSQL(DogGoldenDao.SQL_DOG);
+        sqLiteDatabase.execSQL(DogHuskyDao.SQL_DOG);
+        sqLiteDatabase.execSQL(DogPooldyDao.SQL_DOG);
+        sqLiteDatabase.execSQL(DogSamoyedDao.SQL_DOG);
     }
 
     @Override
