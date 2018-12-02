@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AddDogActivity">
+    tools:context=".AddCatActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -106,7 +106,8 @@
             android:id="@+id/edWeight"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="7.5" />
+            android:layout_weight="7.5"
+            android:inputType="number"/>
 
     </LinearLayout>
 
@@ -190,7 +191,8 @@
             android:id="@+id/edPrice"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="7.5" />
+            android:layout_weight="7.5"
+            android:inputType="number" />
 
     </LinearLayout>
 

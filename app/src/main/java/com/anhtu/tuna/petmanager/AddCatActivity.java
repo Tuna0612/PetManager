@@ -205,4 +205,8 @@ public class AddCatActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void out(View view) {
+        finish();
+    }
 }

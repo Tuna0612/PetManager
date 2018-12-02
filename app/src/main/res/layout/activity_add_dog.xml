@@ -103,7 +103,8 @@
             android:id="@+id/edWeight"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="7.5" />
+            android:layout_weight="7.5"
+            android:inputType="number" />
 
     </LinearLayout>
 
@@ -184,7 +185,8 @@
             android:id="@+id/edPrice"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="7.5" />
+            android:layout_weight="7.5"
+            android:inputType="number" />
 
     </LinearLayout>
 
